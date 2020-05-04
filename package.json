@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "npm run docs && ng build --prod --aot",
-    "docs": "node_modules/.bin/compodoc -p tsconfig.app.json"
+    "docs": "node_modules/.bin/compodoc -p tsconfig.json"
   },
   "private": true,
   "dependencies": {
