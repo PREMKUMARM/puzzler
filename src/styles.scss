@@ -1,0 +1,151 @@
+/* You can add global styles to this file, and also import other style files */
+$custom-font-family: monospace;
+
+html, body { height: 100%; }
+body { margin: 0 !important; width: inherit; font-family: $custom-font-family; }
+
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+.basic-container {
+  padding: 30px;
+}
+.version-info {
+  font-size: 8pt;
+  float: right;
+  margin: 8px;
+}
+
+/* CUSTOM THEMES */
+@import '~@angular/material/theming';
+
+// 1) define your fonts
+$general-typography: mat-typography-config(
+  $font-family: $custom-font-family,
+  $body-2:        mat-typography-level(14px, 24px, 600)  
+);
+
+//@import url('https://fonts.googleapis.com/css?family=Pacifico|Shadows+Into+Light');
+
+$english-typography: mat-typography-config(
+  $font-family: $custom-font-family
+);
+
+// .. and set the default font, we'll apply the other fonts later
+@include mat-core($general-typography);
+
+// 3) style specific component
+// this would normaly be in a .scss file of your custom component
+// therefore you'd just include those .scss files here
+@mixin my-custom-component($theme) {
+  // retrieve variables from current theme 
+  // only keep those you need and remove the others
+  $primary: map-get($theme, primary);
+  //$accent: map-get($theme, accent);
+  //$warn: map-get($theme, accent);
+  //$foreground: map-get($theme, foreground);
+  //$background: map-get($theme, background);
+
+  mat-form-field, .mat-form-field-appearance-legacy .mat-form-field-label {
+    color: mat-color($primary);
+  }
+}
+
+// 4) Helper which prevents us from adding all of our custom 
+// components themes one by one to each theme
+@mixin custom-components-theme($theme) {
+  @include my-custom-component($theme);
+  //.. include all custom components mixins here 
+}
+
+// 5) define default theme
+$app-primary: mat-palette($mat-indigo);
+$app-accent:  mat-palette($mat-amber, A200, A100, A400);
+$app-warn:    mat-palette($mat-red);
+$app-theme:   mat-light-theme($app-primary, $app-accent, $app-warn);
+@include angular-material-theme($app-theme); 
+@include custom-components-theme($app-theme);
+
+
+.english {
+  $english-primary: mat-palette($mat-teal);
+  $english-accent:  mat-palette($mat-pink, A200, A100, A400);
+  $english-warn:    mat-palette($mat-red);
+  $english-theme:   mat-light-theme($english-primary, $english-accent, $english-warn);
+
+  @include mat-core($english-typography);
+  @include angular-material-theme($english-theme);
+  
+  @include custom-components-theme($english-theme);
+}
+
+.english .mat-flat-button.mat-primary, .english .mat-raised-button.mat-primary, .english .mat-fab.mat-primary, .english .mat-mini-fab.mat-primary,
+.english .mat-step-header .mat-step-icon-selected, .english .mat-step-header .mat-step-icon-state-done, .english .mat-step-header .mat-step-icon-state-edit
+ {
+  background-color: #1976d2;
+}
+
+.english .mat-step-header .mat-step-icon-selected, .english .mat-step-header .mat-step-icon-state-done, .english .mat-step-header .mat-step-icon-state-edit{
+  color: black;
+}
+
+.english .mat-step-header .mat-step-icon-selected, .english .mat-step-header .mat-step-icon-state-done, .english .mat-step-header .mat-step-icon-state-edit {
+  color: white !important;
+}
+
+.mat-input-element, .mat-form-field-prefix {
+  font-size: 20px !important;
+}
+
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2') format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.content {
+  display: flex;
+  margin: 32px auto;
+  /*    padding: 0 16px;
+  max-width: 960px; */
+  flex-direction: column;
+  align-items: center;
+}
+
+svg.material-icons {
+  height: 24px;
+  width: auto;
+}
+
+svg.material-icons:not(:last-child) {
+  margin-right: 8px;
+}
+
+footer {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  line-height: 20px;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+}

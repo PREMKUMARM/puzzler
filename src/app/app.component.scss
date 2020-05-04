@@ -1,0 +1,90 @@
+.w-100{
+    width: 100%;
+}
+
+::ng-deep {
+app-card,app-card-view, .mat-form-field{
+    width: 100%;
+ }
+.english .mat-stepper-horizontal, .english .mat-stepper-vertical{
+    background: transparent !important;
+}
+.mt-2{
+    margin-top: 12px !important;
+}
+.ml-2{
+    margin-left: 12px !important;
+}
+.text-center{
+    text-align: center !important;
+}
+.logo{
+    padding: 5px;
+    /* margin-top: 5px !important; */
+}
+.mat-dialog-content {
+    overflow: inherit !important;
+}
+}
+
+.main-mat-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+  
+  .example-container {
+    position: absolute;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+  }
+  
+  .long-content { 
+    border: 1px solid green ;    
+    background-color: lightblue;
+  }
+  
+  .sidenav {
+    width: 200px;  
+  }
+  
+  .container {
+    height: 100%;
+    min-height: 100%;
+  
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .box {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+  
+    padding: 20px 10px 40px 10px;
+  }
+  
+  .scrollbar {
+    background-color: #F5F5F5;
+    border: 1px solid lightgray;
+    overflow-y: scroll;
+  }
+  
+  .force-overflow {
+  }
+  
+  #style-1::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .26);
+  }
+  
+  #style-1::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: #F5F5F5;
+  }
