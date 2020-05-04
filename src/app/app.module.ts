@@ -18,12 +18,20 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AdsenseModule } from 'ng2-adsense';
 import { HomeComponent } from './home/home.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { GameControlsComponent } from './game-controls/game-controls.component';
+import { GameGridComponent } from './game-grid/game-grid.component';
+import { GameStepsComponent } from './game-steps/game-steps.component';
+import { GameTypeComponent } from './game-type/game-type.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    GameControlsComponent,
+    GameGridComponent,
+    GameStepsComponent,
+    GameTypeComponent
   ],
   imports: [
     BrowserModule,
