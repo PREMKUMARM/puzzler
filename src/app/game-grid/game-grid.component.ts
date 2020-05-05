@@ -21,9 +21,9 @@ export class GameGridComponent implements OnInit {
   gridVal:number = 4;
 
   constructor(public scramble: ScrambleService, 
-    private config: ConfigService,
-    private stat: StatisticsService,
-    private storage: StorageService,
+    public config: ConfigService,
+    public stat: StatisticsService,
+    public storage: StorageService,
     public shuffle: ShuffleService) {
    }
 
