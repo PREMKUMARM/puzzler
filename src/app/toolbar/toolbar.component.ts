@@ -34,16 +34,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   shuffleGrid(){
-    //this.endGame();
-    this.config.tileSize = Math.floor(this.store.getBoardSize() / this.config.dimension);
-    this.scramble.getTiles().then((tilesArr:any[])=>{
-      this.store.tiles = tilesArr.map((tile) => {
-        tile.position_x = tile.x;
-        tile.position_y = tile.y;
-        return tile;
-      });
-      console.log(tilesArr[0]);
-    });
+    this.shuffle.shuffleGrid();
   }
 
   autosolve(){
