@@ -118,7 +118,7 @@ export class ScrambleService {
       canvas.height = h;
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(tile.canvas, 0, 0, w, h, 0, 0, w, h);
+      //ctx.drawImage(tile.canvas, 0, 0, w, h, 0, 0, w, h);
       
       switch (cacheName) {
         case 'blank':
