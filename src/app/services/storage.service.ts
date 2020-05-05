@@ -19,8 +19,9 @@ export class StorageService {
       ]
     };
     this.storage = localStorage.setItem('statistics', JSON.stringify(defaults));
-
-    this.getData();
+    if(sessionStorage.getItem('gridData')){
+      this.getData();
+    }
    }
 
   getStorage() {
