@@ -1,9 +1,30 @@
 <mat-toolbar color="primary">
-<!--     <img class="logo" width="40" alt="puzzler Logo" src="assets/logo.png" />
- -->    <span>Puzzler</span>
-  
+    <!--     <img class="logo" width="40" alt="puzzler Logo" src="assets/logo.png" />
+ --> <span>Puzzler</span>
+
     <!-- This fills the remaining space of the current row -->
     <span class="fill-remaining-space"></span>
-  
-    <span>Menu</span>
+
+    <span>
+        <button mat-raised-button (click)="stat.isGameRunning() ? endGame() : startGame()">
+            <mat-icon *ngIf="!stat.isGameRunning()">play_circle_filled</mat-icon>
+            <mat-icon *ngIf="stat.isGameRunning()">stop</mat-icon>
+            <span fxHide.xs> {{stat.isGameRunning() ? 'Stop' : 'Start'}} </span>
+        </button>
+
+        <button class="ml-2" mat-raised-button *ngIf="stat.isGameRunning()" (click)="autosolve()">
+            <mat-icon>autorenew</mat-icon>
+            <span fxHide.xs>  Auto solve </span>
+        </button>
+
+        <button class="ml-2" mat-raised-button *ngIf="stat.isGameRunning()" (click)="shuffleGrid()">
+            <mat-icon>loop</mat-icon>
+            <span fxHide.xs>  Shuffle </span>
+        </button>
+
+        <button mat-icon-button aria-label="settings" (click)="settingsClickEv()">
+            <mat-icon>settings</mat-icon>
+        </button>
+
+    </span>
 </mat-toolbar>

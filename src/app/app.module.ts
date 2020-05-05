@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,6 +27,7 @@ import { ShuffleService } from './services/shuffle.service';
 import { ScrambleService } from './services/scramble.service';
 import { StatisticsService } from './services/statistics.service';
 import { StorageService } from './services/storage.service';
+//import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -51,10 +52,11 @@ import { StorageService } from './services/storage.service';
     FormsModule,
     HttpClientModule,
     MatNativeDateModule,
+    FlexLayoutModule,
     ReactiveFormsModule,
     AdsenseModule.forRoot({
      // adClient: 'ca-pub-8657427378750716'
-   }),
+    }),
   ],
   providers: [
     FirebaseService,

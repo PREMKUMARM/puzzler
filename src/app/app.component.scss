@@ -6,6 +6,12 @@
 app-home,app-card-view, .mat-form-field{
     width: 100%;
  }
+ .p-3 {
+  padding: 16px;
+}
+.ml-2{
+  margin-left: 12px !important;
+}
 .english .mat-stepper-horizontal, .english .mat-stepper-vertical{
     background: transparent !important;
 }
@@ -37,7 +43,7 @@ app-home,app-card-view, .mat-form-field{
   
   .example-container {
     position: absolute;
-    top: 64px;
+    top: 0px;
     bottom: 0;
     left: 0;
     right: 0;

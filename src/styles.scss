@@ -122,7 +122,7 @@ $app-theme:   mat-light-theme($app-primary, $app-accent, $app-warn);
 
 .content {
   display: flex;
-  margin: 32px auto;
+  /* margin: 32px auto; */
   /*    padding: 0 16px;
   max-width: 960px; */
   flex-direction: column;
