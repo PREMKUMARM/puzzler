@@ -5,6 +5,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { ConfigService } from './services/config.service';
 import { StorageService } from './services/storage.service';
 import { ShuffleService } from './services/shuffle.service';
+import { StatisticsService } from './services/statistics.service';
 
 @Component({
   selector: 'app-root',
@@ -37,8 +38,9 @@ export class AppComponent {
   ];
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
-    private storage: StorageService,
-    private shuffle: ShuffleService,
+    public storage: StorageService,
+    public stat: StatisticsService,
+    public shuffle: ShuffleService,
     public config: ConfigService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();

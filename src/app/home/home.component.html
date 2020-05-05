@@ -1,21 +1,10 @@
-<mat-grid-list cols="12" rowHeight="80vh" *ngIf="false">
-    <mat-grid-tile [colspan]="2">
-        <app-game-type></app-game-type>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="8">
-        <app-game-grid></app-game-grid>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="2">
-        <app-game-steps></app-game-steps>
-    </mat-grid-tile>
-</mat-grid-list>
 
-<div class="container" fxLayout="row" fxFlexFill fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap
+<div class="container mt-2" fxLayout="row" fxFlexFill fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap
     fxLayoutGap="0.5%" fxLayoutAlign="center">
     <div fxFlex="70%" fxFlexAlign="center">
         <app-game-grid></app-game-grid>
     </div>
-    <div fxFlex="30%" fxFlexAlign="center">
+<!--     <div fxFlex="30%" fxFlexAlign="center">
         <app-game-steps></app-game-steps>
-    </div>
+    </div> -->
 </div>

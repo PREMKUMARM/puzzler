@@ -48,4 +48,12 @@
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
+    <mat-toolbar color="primary" class="footer" fxLayout="row" *ngIf="stat.isGameRunning()"
+    fxLayoutAlign="center">
+        <div>
+            <p class="timer"><span>Moves count: {{ stat.getMovesCount() || 0 }} &nbsp; </span><span>Time: {{ stat.getGameTime() }} sec,</span></p>
+        </div>
+    </mat-toolbar>
   </div>
+
+ 

@@ -31,6 +31,10 @@ app-home,app-card-view, .mat-form-field{
 .mat-dialog-content {
     overflow: inherit !important;
 }
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
 }
 
 .main-mat-toolbar {
@@ -93,4 +97,20 @@ app-home,app-card-view, .mat-form-field{
     width: 4px;
     height: 4px;
     background-color: #F5F5F5;
+  }
+  .footer {
+    background-color: transparent;
+    text-align: center !important;
+    position: fixed !important;
+    bottom: 0px;
+  }
+  
+  .timer{
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid black;
+    color: white;
+    background: #3f51b5;
+    margin-bottom: 0px !important;
+    bottom: 0px !important;
   }
