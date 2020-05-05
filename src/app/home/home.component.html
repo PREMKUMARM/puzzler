@@ -1,4 +1,17 @@
-<app-game-steps></app-game-steps>
-<app-game-grid></app-game-grid>
-<app-game-type></app-game-type>
-<app-game-controls></app-game-controls>
+<mat-grid-list cols="12" rowHeight="80vh">
+    <mat-grid-tile
+        [colspan]="2">
+        <app-game-type></app-game-type>
+    </mat-grid-tile>
+    <mat-grid-tile
+        [colspan]="8">
+        <app-game-grid></app-game-grid>
+    </mat-grid-tile>
+    <mat-grid-tile
+        [colspan]="2">
+        <app-game-steps></app-game-steps>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+

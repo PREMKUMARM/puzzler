@@ -1,3 +1,24 @@
+$boardSize: 480px;
 mat-grid-tile {
     background: lightblue;
+  }
+
+  .game {
+    .game-board {
+      width: $boardSize;
+      height: $boardSize;
+      margin: 0 auto;
+      position: relative;
+  
+      .tile {
+        position: absolute;
+        //transition: all 0.2s ease-out;
+        transition: transform 0.2s ease-in-out;
+        cursor: pointer;
+  
+        &.empty {
+          z-index: -1;
+        }
+      }
+    }
   }

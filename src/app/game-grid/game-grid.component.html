@@ -1,18 +1,18 @@
-<mat-grid-list [cols]="gridVal" rowHeight="2:1">
-    <mat-grid-tile>1</mat-grid-tile>
-    <mat-grid-tile>2</mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
-    <mat-grid-tile>5</mat-grid-tile>
-    <mat-grid-tile>6</mat-grid-tile>
-    <mat-grid-tile>7</mat-grid-tile>
-    <mat-grid-tile>8</mat-grid-tile>
-    <mat-grid-tile>9</mat-grid-tile>
-    <mat-grid-tile>10</mat-grid-tile>
-    <mat-grid-tile>11</mat-grid-tile>
-    <mat-grid-tile>12</mat-grid-tile>
-    <mat-grid-tile>13</mat-grid-tile>
-    <mat-grid-tile>14</mat-grid-tile>
-    <mat-grid-tile>15</mat-grid-tile>
-    <mat-grid-tile>16</mat-grid-tile>
-</mat-grid-list>
+<div class="game">
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="game-board">
+                <div class="tile" *ngFor="let tile of tiles;" [ngStyle]="{'transform': getTilePosition(tile)}"
+                    [ngClass]="{ empty: tile.canvas === null }" (click)="moveByClick(tile)">
+                    <img *ngIf="scramble.getImageFromTile(tile)" [src]="scramble.getImageFromTile(tile)"
+                        [ngStyle]="{ 'width': config.tileSize + 'px', 'height': config.tileSize + 'px'}" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row text-center mt-2">
+           <!--  <app-game-controls></app-game-controls> -->
+    </div>
+    
+</div>

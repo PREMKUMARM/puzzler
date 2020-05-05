@@ -22,6 +22,11 @@ import { GameControlsComponent } from './game-controls/game-controls.component';
 import { GameGridComponent } from './game-grid/game-grid.component';
 import { GameStepsComponent } from './game-steps/game-steps.component';
 import { GameTypeComponent } from './game-type/game-type.component';
+import { ConfigService } from './services/config.service';
+import { ShuffleService } from './services/shuffle.service';
+import { ScrambleService } from './services/scramble.service';
+import { StatisticsService } from './services/statistics.service';
+import { StorageService } from './services/storage.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +57,12 @@ import { GameTypeComponent } from './game-type/game-type.component';
    }),
   ],
   providers: [
-    FirebaseService
+    FirebaseService,
+    ConfigService,
+    ShuffleService,
+    ScrambleService,
+    StatisticsService,
+    StorageService
   ],
   bootstrap: [AppComponent]
 })
