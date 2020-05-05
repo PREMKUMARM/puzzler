@@ -2,6 +2,8 @@ import { Component, VERSION } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, OnDestroy} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { ConfigService } from './services/config.service';
+import { StorageService } from './services/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +18,8 @@ export class AppComponent {
 
   private _mobileQueryListener: () => void;
 
-  difficulty = new FormControl('', Validators.required);
-  grid = new FormControl('2', Validators.required);
+  difficulty = new FormControl('');
+  grid = new FormControl(null, Validators.required);
 
   modes: any[] = [
     {label: 'Amature', value: 'A'},
@@ -27,13 +29,15 @@ export class AppComponent {
   ];
 
   grids: any[] = [
-    {label: '2 x 2', value: '2'},
-    {label: '4 x 4', value: '4'},
-    {label: '6 x 6', value: '6'},
-    {label: '8 x 8', value: '8'},
+    {label: '2 x 2', value: 2},
+    {label: '4 x 4', value: 4},
+    {label: '6 x 6', value: 6},
+    {label: '8 x 8', value: 8},
   ];
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
+    private storage: StorageService,
+    public config: ConfigService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -41,6 +45,12 @@ export class AppComponent {
 
   ngOnInit(){
     this.difficulty.patchValue('A');
+    this.grid.patchValue(this.config.dimension);
+
+  }
+
+  applySettings(){
+    this.config.dimension = this.grid.value;
   }
 
   ngOnDestroy(): void {

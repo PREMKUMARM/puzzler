@@ -32,7 +32,7 @@
                       </mat-list-item>
                       <br><br><br>
                       <mat-list-item>
-                          <button mat-raised-button color="primary" *ngIf="difficulty.dirty || grid.dirty" (click)="applySettings()">
+                          <button mat-raised-button color="primary" *ngIf="difficulty.dirty || grid.dirty" (click)="applySettings();snav.toggle()">
                               <mat-icon >done</mat-icon>
                               Apply changes
                           </button>

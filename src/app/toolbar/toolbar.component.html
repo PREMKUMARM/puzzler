@@ -13,12 +13,12 @@
         </button>
 
         <button class="ml-2" mat-raised-button *ngIf="stat.isGameRunning()" (click)="autosolve()">
-            <mat-icon>autorenew</mat-icon>
-            <span fxHide.xs>  Auto solve </span>
+            <mat-icon>flip_camera_android</mat-icon>
+            <span fxHide.xs>  Autosolve </span>
         </button>
 
         <button class="ml-2" mat-raised-button *ngIf="stat.isGameRunning()" (click)="shuffleGrid()">
-            <mat-icon>loop</mat-icon>
+            <mat-icon>crop_rotate</mat-icon>
             <span fxHide.xs>  Shuffle </span>
         </button>
 

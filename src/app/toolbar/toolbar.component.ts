@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { StatisticsService } from '../services/statistics.service';
 import { StorageService } from '../services/storage.service';
 import { ShuffleService } from '../services/shuffle.service';

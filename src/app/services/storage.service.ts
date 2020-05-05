@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ConfigService } from './config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ export class StorageService {
   storage: any;
   tiles:any[];
 
-  constructor() {
+  constructor(private config: ConfigService) {
     let defaults = {
       dimension: 4,  // standard value for 15-puzzle
       showNumber: true,
@@ -22,6 +23,15 @@ export class StorageService {
 
   getStorage() {
     return this.storage;
+  }
+
+  setData(){
+    sessionStorage.setItem('gridData', JSON.stringify(this.config.dimension));
+  }
+
+  getData(){
+    let d = sessionStorage.getItem('gridData');
+    this.config.dimension = JSON.parse(d);
   }
   
   getBoardSize() {
