@@ -7,6 +7,7 @@ export class ConfigService {
   highlightRightPlace: boolean = true;
   dimension:number = 2;
   tileSize:number;
+  difficulty:string = 'A';
 
   constructor() { }
 }

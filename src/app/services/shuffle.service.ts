@@ -9,6 +9,7 @@ export class ShuffleService {
   constructor(private config: ConfigService, private store: StorageService, private scramble: ScrambleService) { }
 
   array(arr) {
+    console.log(arr);
     // http://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
     const shuffleArray = (a) => {
       for (let i = a.length; i; i--) {
@@ -29,7 +30,7 @@ export class ShuffleService {
         tile.position_y = tile.y;
         return tile;
       });
-      console.log(tilesArr[0]);
+      console.log(tilesArr);
     });
   }
 }

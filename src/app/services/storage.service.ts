@@ -32,6 +32,7 @@ export class StorageService {
     if(this.stat.gameRunning){
       let gameData = {
         dimension: this.config.dimension,
+        difficulty: this.config.difficulty,
         tiles: this.tiles,
         startTime: this.stat.startingTime,
         moves: this.stat.movesCount,
@@ -53,7 +54,7 @@ export class StorageService {
     this.stat.gameRunning = true;
     this.stat.movesCount = d['moves'];
     this.stat.startingTime = (d['startTime']);
-    //this.stat.endingTime = (d['pauseTime']);
+    this.config.difficulty = (d['difficulty']);
     this.stat.startTimer(d['pauseTime']);
   }
   

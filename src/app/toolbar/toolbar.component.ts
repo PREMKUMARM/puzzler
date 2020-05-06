@@ -4,6 +4,8 @@ import { StorageService } from '../services/storage.service';
 import { ShuffleService } from '../services/shuffle.service';
 import { ConfigService } from '../services/config.service';
 import { ScrambleService } from '../services/scramble.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -34,7 +36,17 @@ export class ToolbarComponent implements OnInit {
   }
 
   shuffleGrid(){
-    this.shuffle.shuffleGrid();
+    const arr = this.store.tiles;
+    //this.store.tiles = this.shuffle.array(arr);
+    this.shuffle.array(this.store.tiles.map((tile) => {
+      return {
+        x: tile.position_x,
+        y: tile.position_y
+      }
+    })).map((p, i) => {
+      this.tiles[i].position_x = p.x;
+      this.tiles[i].position_y = p.y;
+    });
   }
 
   autosolve(){
@@ -71,11 +83,11 @@ export class ToolbarComponent implements OnInit {
     if (this.stat.isGameRunning()) {
       this.stat.doMove();
       if (this.stat.isWin(this.tiles)) {
-        this.stat.stopGame();
+       
         const dimension = this.config.dimension;
         const gameTime = this.stat.getGameTime();
         const movesCount = this.stat.getMovesCount();
-        alert('you won the game..');
+       // this.openAlertDialog();
         /* this.modal.openWin(dimension, gameTime, movesCount).then((username) => {
           if (username) {
             this.stat.saveResult(username, dimension, gameTime, movesCount);
@@ -84,6 +96,7 @@ export class ToolbarComponent implements OnInit {
       }
     }
   }
+
 
   endGame() {
     for (let i = 0; i < this.tiles.length; i++) {

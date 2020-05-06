@@ -27,6 +27,7 @@ import { ShuffleService } from './services/shuffle.service';
 import { ScrambleService } from './services/scramble.service';
 import { StatisticsService } from './services/statistics.service';
 import { StorageService } from './services/storage.service';
+import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 //import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -37,7 +38,8 @@ import { StorageService } from './services/storage.service';
     GameControlsComponent,
     GameGridComponent,
     GameStepsComponent,
-    GameTypeComponent
+    GameTypeComponent,
+    AlertDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +68,7 @@ import { StorageService } from './services/storage.service';
     StatisticsService,
     StorageService
   ],
+  entryComponents: [AlertDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

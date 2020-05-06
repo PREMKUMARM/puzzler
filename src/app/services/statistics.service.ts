@@ -12,8 +12,6 @@ export class StatisticsService {
   gameRunning:boolean;
 
   constructor() {
-    //this.$interval = $interval;
-    //this.$storage = storage.getStorage();
     this.startingTime = null;
     this.movesCount = 0;
     this.timerHandler = null;
@@ -22,8 +20,6 @@ export class StatisticsService {
   startGame() {
     this.startingTime = Date.now();
     this.endingTime = Date.now();
-    
-    //this.endingTime = 0;
     this.movesCount = 0;
     this.gameRunning = true;
     this.startTimer();
@@ -40,8 +36,6 @@ export class StatisticsService {
   }
   
   getGameTime() {
-    console.log(((this.endingTime - this.startingTime)))
-    //return Math.floor((this.endingTime - this.startingTime) / 1000);
     return (this.endingTime - this.startingTime);
   }
   

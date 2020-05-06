@@ -4,6 +4,8 @@ import { ScrambleService } from '../services/scramble.service';
 import { ShuffleService } from '../services/shuffle.service';
 import { StatisticsService } from '../services/statistics.service';
 import { StorageService } from '../services/storage.service';
+import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-game-grid',
@@ -22,6 +24,7 @@ export class GameGridComponent implements OnInit {
 
   constructor(public scramble: ScrambleService, 
     public config: ConfigService,
+    private dialog: MatDialog,
     public stat: StatisticsService,
     public storage: StorageService,
     public shuffle: ShuffleService) {
@@ -62,18 +65,29 @@ export class GameGridComponent implements OnInit {
     if (this.stat.isGameRunning()) {
       this.stat.doMove();
       if (this.stat.isWin(this.tiles)) {
-        this.stat.stopGame();
+        //this.stat.stopGame();
         const dimension = this.config.dimension;
         const gameTime = this.stat.getGameTime();
         const movesCount = this.stat.getMovesCount();
-        alert('you won the game..');
-        /* this.modal.openWin(dimension, gameTime, movesCount).then((username) => {
-          if (username) {
-            this.stat.saveResult(username, dimension, gameTime, movesCount);
-          }
-        }); */
+        this.openAlertDialog();
       }
     }
+  }
+
+
+  openAlertDialog() {
+    const dialogRef = this.dialog.open(AlertDialogComponent,{
+      data:{
+        message: 'You won the game',
+        buttonText: {
+          cancel: 'Done'
+        }
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      this.stat.stopGame();
+    });
   }
 
   moveByClick(tile) {

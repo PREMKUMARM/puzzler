@@ -70,7 +70,7 @@ export class GameTypeComponent implements OnInit {
         const dimension = this.config.dimension;
         const gameTime = this.stat.getGameTime();
         const movesCount = this.stat.getMovesCount();
-        alert('you won the game..');
+        alert('yxkvlxkvl;xou won the game..');
         /* this.modal.openWin(dimension, gameTime, movesCount).then((username) => {
           if (username) {
             this.stat.saveResult(username, dimension, gameTime, movesCount);

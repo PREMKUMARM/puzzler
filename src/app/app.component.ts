@@ -48,13 +48,14 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    this.difficulty.patchValue('A');
+    this.difficulty.patchValue(this.config.difficulty);
     this.grid.patchValue(this.config.dimension);
 
   }
 
   applySettings(){
     this.config.dimension = this.grid.value;
+    this.config.difficulty = this.difficulty.value;
     this.shuffle.shuffleGrid();
   }
 
