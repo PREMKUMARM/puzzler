@@ -13,10 +13,9 @@ app.use(compression({ level: 6 }));
 // Serve only the static files form the dist directory
 app.use('/app',express.static(__dirname + '/dist/puzzler'));
 
-app.use('/docs', express.static(__dirname + '/dist/puzzler'));
+app.use('/docs', express.static(__dirname + '/documentation'));
 
 app.get('/docs', function(req,res) {
-    
 res.sendFile(path.join(__dirname+'/documentation/index.html'));
 });
 
