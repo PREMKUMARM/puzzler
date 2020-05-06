@@ -38,19 +38,19 @@ Yes you are right, this application is developed in angular 8 version cli.
 
 ## Screenshots
 
-# Mobile View
-![Application Page1](https://github.com/PREMKUMARM/puzzler/blob/master/screenshots/Screenshot1.png)
+# Mobile View 
+![Application Page1](https://github.com/PREMKUMARM/puzzler/raw/master/screenshots/Screenshot1.png)
 
 
-![Application Page2](https://github.com/PREMKUMARM/puzzler/blob/master/screenshots/Screenshot2.png)
+![Application Page2](https://github.com/PREMKUMARM/puzzler/raw/master/screenshots/Screenshot2.png)
 
 
-![Application Page3](https://github.com/PREMKUMARM/puzzler/blob/master/screenshots/Screenshot3.png)
+![Application Page3](https://github.com/PREMKUMARM/puzzler/raw/master/screenshots/Screenshot3.png)
 
 # Web View
 
-![Application Page Web](https://github.com/PREMKUMARM/puzzler/blob/master/screenshots/ScreenshotWeb.png)
+![Application Page Web](https://github.com/PREMKUMARM/puzzler/raw/master/screenshots/ScreenshotWeb.png)
 
-![Application Page Web2](https://github.com/PREMKUMARM/puzzler/blob/master/screenshots/ScreenshotWeb2.png)
+![Application Page Web2](https://github.com/PREMKUMARM/puzzler/raw/master/screenshots/ScreenshotWeb2.png)
 
 ## Thank you :)
