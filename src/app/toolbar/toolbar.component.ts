@@ -83,16 +83,7 @@ export class ToolbarComponent implements OnInit {
     if (this.stat.isGameRunning()) {
       this.stat.doMove();
       if (this.stat.isWin(this.tiles)) {
-       
-        const dimension = this.config.dimension;
-        const gameTime = this.stat.getGameTime();
-        const movesCount = this.stat.getMovesCount();
-       // this.openAlertDialog();
-        /* this.modal.openWin(dimension, gameTime, movesCount).then((username) => {
-          if (username) {
-            this.stat.saveResult(username, dimension, gameTime, movesCount);
-          }
-        }); */
+
       }
     }
   }

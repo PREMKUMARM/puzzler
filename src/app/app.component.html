@@ -1,59 +1,53 @@
 <!-- Toolbar -->
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-    <app-toolbar (settingsClick)="snav.toggle()"></app-toolbar>
-  
-    <mat-sidenav-container class="example-sidenav-container"
-                           [style.marginTop.px]="mobileQuery.matches ? 20 : 0">
-      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="20" class="p-3">
-        
-                   <mat-list>
-                      <mat-list-item>
-                          <mat-form-field>
-                              <mat-label>Difficulty</mat-label>
-                             
-                              <mat-select [formControl]="difficulty" required>
-                                <mat-option *ngFor="let m of modes" [(value)]="m.value">
-                                  {{m.label}}
-                                </mat-option>
-                              </mat-select>
-                          </mat-form-field>
-                      </mat-list-item>
-                      <br>
-                      <mat-list-item>
-                          <mat-form-field>
-                              <mat-label>Grid Size</mat-label>
-                              <mat-select [formControl]="grid" required>
-                                <mat-option *ngFor="let g of grids" [value]="g.value">
-                                  {{g.label}}
-                                </mat-option>
-                              </mat-select>
-                          </mat-form-field>
-                      </mat-list-item>
-                      <br><br><br>
-                      <mat-list-item>
-                          <button mat-raised-button color="primary" *ngIf="difficulty.dirty || grid.dirty" (click)="applySettings();snav.toggle()">
-                              <mat-icon >done</mat-icon>
-                              Apply changes
-                          </button>
-                      </mat-list-item>
-                    </mat-list>
-           
-            
-           
-       
-      </mat-sidenav>
-  
-      <mat-sidenav-content>
-        <router-outlet></router-outlet>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-    <mat-toolbar color="primary" class="footer" fxLayout="row" *ngIf="stat.isGameRunning()"
-    fxLayoutAlign="center">
-        <div>
-            <p class="timer"><span>Moves: {{ stat.movesCount || 0 }} &nbsp; </span><span>Time: {{ stat.getGameTime() | date:'mm:ss':'UTC'}}</span></p>
-        </div>
-    </mat-toolbar>
-  </div>
+  <app-toolbar (settingsClick)="snav.toggle()"></app-toolbar>
 
- 
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 20 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="20" class="p-3">
+
+      <mat-list>
+        <mat-list-item>
+          <mat-form-field>
+            <mat-label>Difficulty</mat-label>
+
+            <mat-select [formControl]="difficulty" required>
+              <mat-option *ngFor="let m of modes" [(value)]="m.value">
+                {{m.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-list-item>
+        <br>
+        <mat-list-item>
+          <mat-form-field>
+            <mat-label>Grid Size</mat-label>
+            <mat-select [formControl]="grid" required>
+              <mat-option *ngFor="let g of grids" [value]="g.value">
+                {{g.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-list-item>
+        <br><br><br>
+        <mat-list-item>
+          <button mat-raised-button color="primary" *ngIf="difficulty.dirty || grid.dirty"
+            (click)="applySettings();snav.toggle()">
+            <mat-icon>done</mat-icon>
+            Apply changes
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <mat-toolbar color="primary" class="footer" fxLayout="row" *ngIf="stat.isGameRunning()" fxLayoutAlign="center">
+    <div>
+      <p class="timer"><span>Moves: {{ stat.movesCount || 0 }} &nbsp; </span><span>Time:
+          {{ stat.getGameTime() | date:'mm:ss':'UTC'}}</span></p>
+    </div>
+  </mat-toolbar>
+</div>

@@ -8,7 +8,6 @@ import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { FirebaseService } from './firebase.service';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
@@ -18,27 +17,22 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AdsenseModule } from 'ng2-adsense';
 import { HomeComponent } from './home/home.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { GameControlsComponent } from './game-controls/game-controls.component';
 import { GameGridComponent } from './game-grid/game-grid.component';
 import { GameStepsComponent } from './game-steps/game-steps.component';
-import { GameTypeComponent } from './game-type/game-type.component';
 import { ConfigService } from './services/config.service';
 import { ShuffleService } from './services/shuffle.service';
 import { ScrambleService } from './services/scramble.service';
 import { StatisticsService } from './services/statistics.service';
 import { StorageService } from './services/storage.service';
 import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
-//import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ToolbarComponent,
-    GameControlsComponent,
     GameGridComponent,
     GameStepsComponent,
-    GameTypeComponent,
     AlertDialogComponent
   ],
   imports: [
