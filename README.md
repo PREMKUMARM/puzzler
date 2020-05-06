@@ -51,5 +51,6 @@ Yes you are right, this application is developed in angular 8 version cli.
 
 ![Application Page Web](https://github.com/PREMKUMARM/puzzler/blob/master/screenshots/ScreenshotWeb.png)
 
+![Application Page Web2](https://github.com/PREMKUMARM/puzzler/blob/master/screenshots/ScreenshotWeb2.png)
 
 ## Thank you :)
