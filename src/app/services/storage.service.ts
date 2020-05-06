@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ConfigService } from './config.service';
+import { StatisticsService } from './statistics.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,18 +9,17 @@ export class StorageService {
   storage: any;
   tiles:any[];
 
-  constructor(private config: ConfigService) {
+  constructor(private config: ConfigService, public stat: StatisticsService) {
     let defaults = {
       dimension: 4,  // standard value for 15-puzzle
-      showNumber: true,
-      highlightRightPlace: true,
+      //showNumber: true,
+      //highlightRightPlace: true,
       score: [
-        // predefined results
         { "username": "Prem", "dimension": 4, "gameTime": 20, "movesCount": 10, "time": 1494096553227 }
       ]
     };
-    this.storage = localStorage.setItem('statistics', JSON.stringify(defaults));
-    if(sessionStorage.getItem('gridData')){
+    //this.storage = localStorage.setItem('statistics', JSON.stringify(defaults));
+    if(sessionStorage.getItem('gameData')){
       this.getData();
     }
    }
@@ -29,12 +29,32 @@ export class StorageService {
   }
 
   setData(){
-    sessionStorage.setItem('gridData', JSON.stringify(this.config.dimension));
+    if(this.stat.gameRunning){
+      let gameData = {
+        dimension: this.config.dimension,
+        tiles: this.tiles,
+        startTime: this.stat.startingTime,
+        moves: this.stat.movesCount,
+        pauseTime: this.stat.endingTime
+      }
+      sessionStorage.setItem('gameData', JSON.stringify(gameData));
+    } else{
+      sessionStorage.clear();
+    }
   }
 
   getData(){
-    let d = sessionStorage.getItem('gridData');
-    this.config.dimension = JSON.parse(d);
+    let d = sessionStorage.getItem('gameData');
+    if(d){
+      d = JSON.parse(d);
+    }
+    this.config.dimension = d['dimension'];
+    this.tiles = d['tiles'];
+    this.stat.gameRunning = true;
+    this.stat.movesCount = d['moves'];
+    this.stat.startingTime = (d['startTime']);
+    //this.stat.endingTime = (d['pauseTime']);
+    this.stat.startTimer(d['pauseTime']);
   }
   
   getBoardSize() {

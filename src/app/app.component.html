@@ -51,7 +51,7 @@
     <mat-toolbar color="primary" class="footer" fxLayout="row" *ngIf="stat.isGameRunning()"
     fxLayoutAlign="center">
         <div>
-            <p class="timer"><span>Moves: {{ stat.getMovesCount() || 0 }} &nbsp; </span><span>Time: {{ stat.getGameTime() | date:'mm:ss':'UTC'}}</span></p>
+            <p class="timer"><span>Moves: {{ stat.movesCount || 0 }} &nbsp; </span><span>Time: {{ stat.getGameTime() | date:'mm:ss':'UTC'}}</span></p>
         </div>
     </mat-toolbar>
   </div>

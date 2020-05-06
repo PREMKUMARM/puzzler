@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { StorageService } from './storage.service';
+//import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class StatisticsService {
   timerHandler: any;
   gameRunning:boolean;
 
-  constructor(private storage: StorageService) {
+  constructor() {
     //this.$interval = $interval;
     //this.$storage = storage.getStorage();
     this.startingTime = null;
@@ -26,9 +26,12 @@ export class StatisticsService {
     //this.endingTime = 0;
     this.movesCount = 0;
     this.gameRunning = true;
+    this.startTimer();
+  }
+
+  startTimer(pauseTime?){
     this.timerHandler = setInterval(() => {
-      //this.endingTime++;
-      this.endingTime = Date.now();
+      this.endingTime = Date.now() ;
     }, 1000);
   }
   
@@ -66,11 +69,12 @@ export class StatisticsService {
   stopGame() {
    // this.$interval.cancel(this.timerHandler);
     clearInterval(this.timerHandler);
-    this.gameRunning = false
+    this.gameRunning = false;
+    sessionStorage.clear();
   }
   
   saveResult(username, dimension, gameTime, movesCount) {
     const time = +new Date();
-    this.storage.storage.score.push({username, dimension, gameTime, movesCount, time});
+  //  this.storage.storage.score.push({username, dimension, gameTime, movesCount, time});
   }
 }

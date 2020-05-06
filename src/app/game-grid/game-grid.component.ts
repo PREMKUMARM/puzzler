@@ -29,15 +29,17 @@ export class GameGridComponent implements OnInit {
 
   ngOnInit() {
     this.config.tileSize = Math.floor(this.storage.getBoardSize() / this.config.dimension);
-    this.scramble.getTiles().then((tilesArr:any[])=>{
-      this.storage.tiles = tilesArr.map((tile) => {
-        tile.position_x = tile.x;
-        tile.position_y = tile.y;
-        console.log(tile);
-        return tile;
+    if(!this.stat.gameRunning){
+      this.scramble.getTiles().then((tilesArr:any[])=>{
+        this.storage.tiles = tilesArr.map((tile) => {
+          tile.position_x = tile.x;
+          tile.position_y = tile.y;
+          //console.log(tile);
+          return tile;
+        });
+        //console.log(tilesArr[0]);
       });
-      //console.log(tilesArr[0]);
-    });
+    }
   }
 
   getTilePosition(tile){
