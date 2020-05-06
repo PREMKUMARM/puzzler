@@ -59,9 +59,15 @@ export class GameGridComponent implements OnInit {
  
 
   swapTiles(t1, t2) {
-    console.log(t1,t2);
     [t1.position_x, t2.position_x] = [t2.position_x, t1.position_x];
     [t1.position_y, t2.position_y] = [t2.position_y, t1.position_y];
+    console.debug('Before::',t1, t2);
+    let m = {
+      tile: 'Tile '+t2.num,
+      before: [t1.position_y, t2.position_y],
+      after: [t1.position_x, t2.position_x]
+    }
+    this.stat.moveslog.push(m);
     if (this.stat.isGameRunning()) {
       this.stat.doMove();
       if (this.stat.isWin(this.tiles)) {

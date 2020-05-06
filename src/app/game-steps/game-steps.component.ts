@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StatisticsService } from '../services/statistics.service';
 
 @Component({
   selector: 'app-game-steps',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameStepsComponent implements OnInit {
 
-  constructor() { }
+  get dataSource() {
+    return this.stat.moveslog;
+  }
 
+  constructor(public stat: StatisticsService) { }
   ngOnInit() {
   }
 

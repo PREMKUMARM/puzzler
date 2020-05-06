@@ -10,11 +10,13 @@ export class StatisticsService {
   movesCount: number;
   timerHandler: any;
   gameRunning:boolean;
+  moveslog:any[];
 
   constructor() {
     this.startingTime = null;
     this.movesCount = 0;
     this.timerHandler = null;
+    this.moveslog = [];
    }
 
   startGame() {

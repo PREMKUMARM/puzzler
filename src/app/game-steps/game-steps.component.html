@@ -1,1 +1,12 @@
-<p>game-steps works!</p>
+<table id="movesTable" class="mat-table" *ngIf="false">
+    <tbody>
+        <tr>
+            <th>Your Moves</th>
+        </tr>
+        <tr *ngFor="let tile of dataSource;">
+            <td>
+                {{tile.tile}} moves from {{tile.before}} to {{tile.after}}
+            </td>
+        </tr>
+    </tbody>
+</table>

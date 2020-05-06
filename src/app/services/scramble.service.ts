@@ -216,12 +216,13 @@ export class ScrambleService {
         
         for (let i = 0; i < dimension; i++) {
           for (let j = 0; j < dimension; j++) {
+            const num = ((j * dimension) + i) + 1;
             if (i === dimension - 1 && j === dimension - 1) {
-              this.tiles.push({x: i, y: j, canvas: null, cache: cacheKeys.map(() => null)});
+              this.tiles.push({x: i, y: j,num: num, canvas: null, cache: cacheKeys.map(() => null)});
               continue;
             }
             
-            let tile = {x: i, y: j, canvas: this.getTileAsCanvas(img, i, j, tileSize, ratio, margin), cache: {}};
+            let tile = {x: i, y: j,num: num, canvas: this.getTileAsCanvas(img, i, j, tileSize, ratio, margin), cache: {}};
             cacheKeys.map((key) => {
               tile.cache[key] = this.getCachedImageFromTile(tile, key);
             });
