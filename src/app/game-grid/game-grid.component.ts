@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ConfigService } from '../services/config.service';
 import { ScrambleService } from '../services/scramble.service';
 import { ShuffleService } from '../services/shuffle.service';
@@ -21,6 +21,9 @@ export class GameGridComponent implements OnInit {
 
   @Input()
   gridVal:number = 4;
+
+  @Output()
+  stepMoved = new EventEmitter<any>();
 
   constructor(public scramble: ScrambleService, 
     public config: ConfigService,
@@ -68,13 +71,11 @@ export class GameGridComponent implements OnInit {
       after: [t1.position_x, t2.position_x]
     }
     this.stat.moveslog.push(m);
+    this.stepMoved.emit();
     if (this.stat.isGameRunning()) {
       this.stat.doMove();
       if (this.stat.isWin(this.tiles)) {
-        //this.stat.stopGame();
-        const dimension = this.config.dimension;
-        const gameTime = this.stat.getGameTime();
-        const movesCount = this.stat.getMovesCount();
+        this.stat.stopGame();
         this.openAlertDialog();
       }
     }
@@ -84,7 +85,7 @@ export class GameGridComponent implements OnInit {
   openAlertDialog() {
     const dialogRef = this.dialog.open(AlertDialogComponent,{
       data:{
-        message: 'You won the game',
+        message: 'You won the game in '+this.stat.getMovesCount()+ ' moves',
         buttonText: {
           cancel: 'Done'
         }
@@ -92,7 +93,7 @@ export class GameGridComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((confirmed: boolean) => {
-      this.stat.stopGame();
+      //this.stat.stopGame();
     });
   }
 

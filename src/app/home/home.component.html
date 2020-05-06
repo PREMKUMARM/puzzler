@@ -2,9 +2,9 @@
 <div class="container mt-2" fxLayout="row" fxFlexFill fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap
     fxLayoutGap="0.5%" fxLayoutAlign="center">
     <div fxFlex="70%" fxFlexAlign="center">
-        <app-game-grid></app-game-grid>
+        <app-game-grid (stepMoved)="scrollTable()"></app-game-grid>
     </div>
     <div fxFlex="30%" fxFlexAlign="center">
-        <app-game-steps></app-game-steps>
+        <app-game-steps [moved]="step"></app-game-steps>
     </div>
 </div>

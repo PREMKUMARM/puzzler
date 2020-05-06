@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "dev:server": "ng serve -o --base-href /app/",
     "heroku-postbuild": "npm run docs && ng build --prod --aot",
     "docs": "node_modules/.bin/compodoc -p tsconfig.json"
   },

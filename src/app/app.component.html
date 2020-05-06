@@ -3,9 +3,9 @@
     <app-toolbar (settingsClick)="snav.toggle()"></app-toolbar>
   
     <mat-sidenav-container class="example-sidenav-container"
-                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+                           [style.marginTop.px]="mobileQuery.matches ? 20 : 0">
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" class="p-3">
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="20" class="p-3">
         
                    <mat-list>
                       <mat-list-item>

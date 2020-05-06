@@ -36,7 +36,8 @@ export class StorageService {
         tiles: this.tiles,
         startTime: this.stat.startingTime,
         moves: this.stat.movesCount,
-        pauseTime: this.stat.endingTime
+        pauseTime: this.stat.endingTime,
+        movesLog: this.stat.moveslog
       }
       sessionStorage.setItem('gameData', JSON.stringify(gameData));
     } else{
@@ -55,6 +56,7 @@ export class StorageService {
     this.stat.movesCount = d['moves'];
     this.stat.startingTime = (d['startTime']);
     this.config.difficulty = (d['difficulty']);
+    this.stat.moveslog = d['movesLog'];
     this.stat.startTimer(d['pauseTime']);
   }
   

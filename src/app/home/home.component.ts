@@ -7,27 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public cardList: CardInterface[] = [];
+  step:number = 0;
 
   constructor() { }
 
   ngOnInit() {
-    for (let i = 1; i <= 10; i++) {
-      this.cardList.push({
-        imgSrc: 'http://via.placeholder.com/300',
-        title: 'Card No. ' + i,
-        description:
-          'Angular Flex Layout provides a sophisticated layout API using FlexBox CSS + mediaQuery.\
-          This module provides Angular developers with component layout features using a custom Layout API, \
-          mediaQuery observables, and injected DOM flexbox-2016 css stylings.'
-      });
-    }
+
   }
 
-}
+  scrollTable(){
+    this.step++;
+  }
 
-export interface CardInterface {
-  imgSrc: string;
-  title: string;
-  description: string;
 }

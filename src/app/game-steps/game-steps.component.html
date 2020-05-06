@@ -1,12 +1,14 @@
-<table id="movesTable" class="mat-table" *ngIf="false">
-    <tbody>
-        <tr>
-            <th>Your Moves</th>
-        </tr>
-        <tr *ngFor="let tile of dataSource;">
-            <td>
-                {{tile.tile}} moves from {{tile.before}} to {{tile.after}}
-            </td>
-        </tr>
-    </tbody>
+<table class="fixed_header" *ngIf="dataSource.length > 0">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th> Your Move</th>
+    </tr>
+  </thead>
+  <tbody #moves>
+    <tr *ngFor="let tile of dataSource;let i = index">
+      <td>{{i+1}}</td>
+      <td>  {{tile.tile}} moves from [{{tile.before}}] to [{{tile.after}}] </td>
+    </tr>
+  </tbody>
 </table>

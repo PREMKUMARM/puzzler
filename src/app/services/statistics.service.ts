@@ -67,6 +67,7 @@ export class StatisticsService {
     clearInterval(this.timerHandler);
     this.gameRunning = false;
     sessionStorage.clear();
+    this.moveslog = [];
   }
   
   saveResult(username, dimension, gameTime, movesCount) {

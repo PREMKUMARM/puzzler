@@ -39,6 +39,7 @@ app-home,app-card-view, .mat-form-field{
 
 .mat-drawer-container{
   background: transparent !important;
+  min-height: calc(100vh - 67px) !important;
 }
 
 }
