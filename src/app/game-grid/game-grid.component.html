@@ -5,7 +5,7 @@
                 <div class="tile card-1" *ngFor="let tile of tiles;" [ngStyle]="{'transform': getTilePosition(tile)}"
                     [ngClass]="{ empty: tile.canvas === null }" (click)="moveByClick(tile)">
                     <img *ngIf="scramble.getImageFromTile(tile)" [src]="scramble.getImageFromTile(tile)"
-                        [ngStyle]="{ 'width': config.tileSize + 'px', 'height': config.tileSize + 'px'}" />
+                        [ngStyle]="{ 'width': (config.tileSize - 10) + 'px', 'height': (config.tileSize - 10) + 'px'}" />
                 </div>
             </div>
 

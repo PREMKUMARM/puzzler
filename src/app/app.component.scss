@@ -33,6 +33,12 @@ app-home,app-card-view, .mat-form-field{
 }
 .card-1 {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background: white;
+  border-radius: 5px;
+}
+
+.mat-drawer-container{
+  background: transparent !important;
 }
 
 }
@@ -108,9 +114,12 @@ app-home,app-card-view, .mat-form-field{
   .timer{
     padding-left: 5px;
     padding-right: 5px;
-    border: 1px solid black;
+    border: 1px solid #3f51b5;
     color: white;
     background: #3f51b5;
     margin-bottom: 0px !important;
     bottom: 0px !important;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   }

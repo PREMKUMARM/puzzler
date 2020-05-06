@@ -33,14 +33,22 @@ export class GameGridComponent implements OnInit {
       this.storage.tiles = tilesArr.map((tile) => {
         tile.position_x = tile.x;
         tile.position_y = tile.y;
+        console.log(tile);
         return tile;
       });
-      console.log(tilesArr[0]);
+      //console.log(tilesArr[0]);
     });
   }
 
   getTilePosition(tile){
+    
     return `translate3d(${tile.position_x * this.config.tileSize}px, ${tile.position_y * this.config.tileSize}px, 0px)`;
+  }
+
+  getMargin(tile){
+    if(tile.position_y > 0 || tile.position_x > 0){
+      return '0px';
+    }
   }
 
  

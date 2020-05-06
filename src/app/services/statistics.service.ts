@@ -20,14 +20,15 @@ export class StatisticsService {
    }
 
   startGame() {
-    this.startingTime = +new Date();
-    this.endingTime = +new Date();
+    this.startingTime = Date.now();
+    this.endingTime = Date.now();
+    
     //this.endingTime = 0;
     this.movesCount = 0;
     this.gameRunning = true;
     this.timerHandler = setInterval(() => {
       //this.endingTime++;
-      this.endingTime = +new Date();
+      this.endingTime = Date.now();
     }, 1000);
   }
   
@@ -36,8 +37,9 @@ export class StatisticsService {
   }
   
   getGameTime() {
-    return Math.floor((this.endingTime - this.startingTime) / 1000);
-    //return this.endingTime;
+    console.log(((this.endingTime - this.startingTime)))
+    //return Math.floor((this.endingTime - this.startingTime) / 1000);
+    return (this.endingTime - this.startingTime);
   }
   
   isGameRunning() {

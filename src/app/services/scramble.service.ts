@@ -118,6 +118,7 @@ export class ScrambleService {
       canvas.height = h;
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      /**uncomment below line to display image over cards */
       //ctx.drawImage(tile.canvas, 0, 0, w, h, 0, 0, w, h);
       
       switch (cacheName) {
@@ -133,7 +134,7 @@ export class ScrambleService {
           this.drawNumber(ctx, fontSize, num, centerX, centerY);
           break;
         case 'blankNumberBorderSuccess':
-          ctx.strokeStyle = 'green';
+          ctx.strokeStyle = 'blue';
           ctx.strokeRect(margin, margin, w - (margin * 2), h - (margin * 2));
           this.drawNumber(ctx, fontSize, num, centerX, centerY);
           break;
@@ -142,7 +143,7 @@ export class ScrambleService {
           ctx.strokeRect(margin, margin, w - (margin * 2), h - (margin * 2));
           break;
         case 'blankBorderSuccess':
-          ctx.strokeStyle = 'green';
+          ctx.strokeStyle = 'blue';
           ctx.strokeRect(margin, margin, w - (margin * 2), h - (margin * 2));
           break;
       }
@@ -177,7 +178,7 @@ export class ScrambleService {
   
   drawNumber(ctx, fontSize, num, centerX, centerY) {
     const strokeStyle = ctx.strokeStyle;
-    ctx.font = fontSize + 'px Arial';
+    ctx.font = fontSize + 'px monospace';
     ctx.textAlign = 'center';
     ctx.lineWidth = 1;
     ctx.strokeStyle = 'black';
@@ -201,8 +202,8 @@ export class ScrambleService {
     return loadImage('assets/images/nature.jpg').then((img) => {
         this.tiles = [];
         
-        const previewSize = 480;
-        const margin = 3;
+        const previewSize = 320;
+        const margin = 5;
         const tileSize = Math.floor(previewSize / dimension);
         const ratio = img['width'] / previewSize;
         
@@ -228,7 +229,7 @@ export class ScrambleService {
             
             this.drawImagePart(ctx, img, i, j, tileSize, ratio, margin);
             if (highlightRightPlace) {
-              ctx.strokeStyle = (Math.random() > 0.5) ? 'red' : 'green';
+              ctx.strokeStyle = (Math.random() > 0.5) ? 'red' : 'blue';
               this.drawHighlight(ctx, i, j, tileSize, margin);
             } else {
               ctx.strokeStyle = 'black';

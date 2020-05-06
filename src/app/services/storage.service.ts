@@ -39,6 +39,6 @@ export class StorageService {
   
   getBoardSize() {
     // check $boardSize sass variable
-    return 480;
+    return 320;
   }
 }

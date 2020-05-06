@@ -1,4 +1,4 @@
-$boardSize: 480px;
+$boardSize: 320px;
 mat-grid-tile {
     background: lightblue;
   }
@@ -15,7 +15,8 @@ mat-grid-tile {
         //transition: all 0.2s ease-out;
         transition: transform 0.2s ease-in-out;
         cursor: pointer;
-  
+        padding-top: 3px;
+        
         &.empty {
           z-index: -1;
         }
