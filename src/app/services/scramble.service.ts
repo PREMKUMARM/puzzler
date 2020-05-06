@@ -134,7 +134,7 @@ export class ScrambleService {
           this.drawNumber(ctx, fontSize, num, centerX, centerY);
           break;
         case 'blankNumberBorderSuccess':
-          ctx.strokeStyle = 'blue';
+          ctx.strokeStyle = 'green';
           ctx.strokeRect(margin, margin, w - (margin * 2), h - (margin * 2));
           this.drawNumber(ctx, fontSize, num, centerX, centerY);
           break;
@@ -143,7 +143,7 @@ export class ScrambleService {
           ctx.strokeRect(margin, margin, w - (margin * 2), h - (margin * 2));
           break;
         case 'blankBorderSuccess':
-          ctx.strokeStyle = 'blue';
+          ctx.strokeStyle = 'green';
           ctx.strokeRect(margin, margin, w - (margin * 2), h - (margin * 2));
           break;
       }
@@ -229,7 +229,7 @@ export class ScrambleService {
             
             this.drawImagePart(ctx, img, i, j, tileSize, ratio, margin);
             if (highlightRightPlace) {
-              ctx.strokeStyle = (Math.random() > 0.5) ? 'red' : 'blue';
+              ctx.strokeStyle = (Math.random() > 0.5) ? 'red' : 'green';
               this.drawHighlight(ctx, i, j, tileSize, margin);
             } else {
               ctx.strokeStyle = 'black';
